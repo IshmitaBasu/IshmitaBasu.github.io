@@ -984,7 +984,7 @@ function art(p) {
 }
 function renderProjects(filter='all') {
   const list = projects.filter(p => filter === 'all' || p.category === filter);
-  $('#projects-grid').innerHTML = list.map(p => `<article class="project-card ${p.id==='herroute'?'project-card-herroute':''}">
+  $('#projects-grid').innerHTML = list.map(p => `<article class="project-card">
     <button type="button" class="project-card-main" data-open-project="${html(p.id)}" aria-label="Read case study: ${html(p.title)}">
       ${art(p)}<div class="project-card-copy"><div class="project-meta"><span>${html(p.status)}</span><span>${html(p.highlight)}</span></div>
       <h3>${html(p.title)} <span aria-hidden="true" class="project-title-arrow">↗</span></h3><p class="project-question"><em>${html(p.question)}</em></p><p class="project-description">${html(p.description)}</p></div></button>
