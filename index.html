@@ -210,6 +210,7 @@ img,svg { display:block; max-width:100%; }
 .art-fraud { background:radial-gradient(ellipse at 58% 80%,#2e817b,#173d50 65%,#102636); }
 .art-retail { background:radial-gradient(ellipse at 70% 10%,#ce9d8e,#ad6e70 50%,#614d65); }
 .art-energy { background:radial-gradient(ellipse at 70% 50%,#4477a5,#294a75 55%,#1d315c); }
+.art-fairwork { background:radial-gradient(ellipse at 66% 24%,#4a908f,#245778 54%,#172b4b); }
 .art-swarm { background:radial-gradient(ellipse at 54% 47%,#746aa7,#474268 55%,#2d2947); }
 .art-whisper { background:radial-gradient(ellipse at 55% 60%,#a26081,#6d3c69 60%,#482a5c); }
 .art-bundestag { background:radial-gradient(ellipse at 65% 25%,#5c8b91,#3a6274 58%,#274654); }
@@ -255,6 +256,8 @@ img,svg { display:block; max-width:100%; }
 .health-rail { font:9px var(--font-mono); color:#f3fbe9; display:flex; flex-direction:column; gap:8px; }
 .health-rail span { display:block; height:12px; border-radius:2px; background:linear-gradient(90deg,#e5f2ae,#c1dfc0); }
 .health-bar-a { width:88%; }.health-bar-b { width:68%; }.health-bar-c { width:76%; }
+.fairwork-graphic { position:absolute; inset:41px 34px 34px; z-index:1; }
+.fairwork-graphic svg { width:100%; height:100%; overflow:visible; }
 .project-card-copy { padding:24px 26px 26px; }
 .project-meta { display:flex; gap:12px; justify-content:space-between; color:var(--muted); font:10px var(--font-mono); text-transform:uppercase; letter-spacing:.01em; }
 .project-card h3 { display:flex; justify-content:space-between; gap:10px; align-items:start; font-weight:600; letter-spacing:-.045em; font-size:clamp(20px,2.5vw,27px); line-height:1.24; margin:19px 0 13px; }
@@ -647,8 +650,8 @@ img,svg { display:block; max-width:100%; }
     </div></section>
 
     <section class="section work-section" id="work"><div class="shell">
-      <div class="work-intro"><div class="section-heading reveal"><div class="section-kicker"><span class="kicker-index">02</span><span class="kicker-line"></span>SELECTED PROJECTS</div><h2>A few things I've <em>built and explored.</em></h2><p>Six selected projects spanning geospatial data engineering, tested analytics models, end-to-end BI, fraud-detection MLOps and collaborative AI research. Open a card to see the methods, results and limitations.</p></div><a href="https://github.com/IshmitaBasu" target="_blank" rel="noopener noreferrer" class="inline-link work-github">More on GitHub ↗</a></div>
-      <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter projects"><button class="filter-button active" data-filter="all" aria-pressed="true">All projects <span class="filter-count">06</span></button><button class="filter-button" data-filter="analytics" aria-pressed="false">Analytics & BI</button><button class="filter-button" data-filter="mlops" aria-pressed="false">ML & MLOps</button><button class="filter-button" data-filter="ai" aria-pressed="false">AI & Products</button></div>
+      <div class="work-intro"><div class="section-heading reveal"><div class="section-kicker"><span class="kicker-index">02</span><span class="kicker-line"></span>SELECTED PROJECTS</div><h2>A few things I've <em>built and explored.</em></h2><p>Seven selected projects spanning geospatial data engineering, evidence-focused analytics, tested BI models, fraud-detection MLOps and collaborative AI research. Open a card to see the methods, results and limitations.</p></div><a href="https://github.com/IshmitaBasu" target="_blank" rel="noopener noreferrer" class="inline-link work-github">More on GitHub ↗</a></div>
+      <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter projects"><button class="filter-button active" data-filter="all" aria-pressed="true">All projects <span class="filter-count">07</span></button><button class="filter-button" data-filter="analytics" aria-pressed="false">Analytics & BI</button><button class="filter-button" data-filter="mlops" aria-pressed="false">ML & MLOps</button><button class="filter-button" data-filter="ai" aria-pressed="false">AI & Products</button></div>
       <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
       <p class="work-footnote"><span aria-hidden="true">✳</span> HerRoute is a bounded infrastructure pilot, not a safety recommendation. Retail and energy-subscription projects use synthetic data. My thesis is research-only; employer dashboards and proprietary datasets are not shared.</p>
     </div></section>
@@ -732,8 +735,44 @@ const projects = [
     "note": "Mapped-light coverage is an infrastructure proxy, not measured illumination or a safety guarantee. The evaluation is a bounded, nonrepresentative Berlin pilot; one journey had a directed graph-connectivity limitation. Hosted Render availability is suitable for a portfolio demo, not guaranteed production uptime."
   },
   {
-    "id": "fraud",
+    "id": "fairwork",
     "number": "02",
+    "title": "FairWork: equality and political context",
+    "eyebrow": "Exploratory analytics · evidence design",
+    "category": "analytics",
+    "visual": "fairwork",
+    "featured": true,
+    "description": "A reproducible dashboard that places European gender-outcome trends beside documented cabinet periods, party survey evidence and policy context without treating association as causation.",
+    "question": "How can political context be explored alongside gender outcomes without simplifying coalitions or overclaiming causation?",
+    "questions": [
+      "How did the approved gender pay and employment-gap measures move across Germany, Spain, France and Sweden from 2010 to 2022?",
+      "Which documented cabinet periods and accepted party-position observations provide relevant political context?",
+      "How can quality flags, timing differences and unresolved political mappings remain visible to the reader?"
+    ],
+    "status": "Nov 2026 · local research dashboard",
+    "highlight": "4 countries · 10 automated tests",
+    "tags": [
+      "Python",
+      "DuckDB",
+      "Streamlit",
+      "Plotly",
+      "GitHub Actions",
+      "Data quality"
+    ],
+    "github": "https://github.com/IshmitaBasu/FairWork",
+    "problem": "Political labels are often used as a shortcut for explaining complex gender-outcome trends. That hides coalition governments, mid-year cabinet changes, survey-wave timing, source flags and the many non-political factors that affect labour-market outcomes.",
+    "approach": [
+      "Built a Python and DuckDB pipeline with separate country-year outcome and dated cabinet-transition marts, preventing annual outcomes from being duplicated or assigned to a single cabinet.",
+      "Combined annual Eurostat outcomes with OECD ECEC context, documented ParlGov cabinet memberships and reviewed CHES party-position observations at their original 2010, 2014 and 2019 survey waves.",
+      "Created a Streamlit and Plotly explorer with country, year, metric and quality controls; cabinet event windows; coalition context; political-spectrum exploration; comparison and methods views.",
+      "Added GitHub Actions checks and an end-to-end synthetic DuckDB fixture test, keeping real source snapshots out of version control and continuous integration."
+    ],
+    "outcome": "The completed pilot covers 52 country-year outcome rows, 34 dated cabinet periods, 32 policy-context observations, 54 reviewed party-wave positions and 83 cabinet-party memberships. It makes descriptive evidence and its limits inspectable, rather than claiming that ideology or a government caused observed change.",
+    "note": "FairWork is an exploratory, local dashboard. It does not rank parties, calculate a national ideology score or make causal claims. Public deployment remains conditional on source-display and redistribution review."
+  },
+  {
+    "id": "fraud",
+    "number": "03",
     "title": "MLOps for financial fraud detection",
     "eyebrow": "Master’s thesis · MLOps",
     "category": "mlops",
@@ -765,7 +804,7 @@ const projects = [
   },
   {
     "id": "retail",
-    "number": "03",
+    "number": "04",
     "title": "Retail sales & operations lakehouse",
     "eyebrow": "Analytics engineering · BI",
     "category": "analytics",
@@ -796,7 +835,7 @@ const projects = [
   },
   {
     "id": "energy",
-    "number": "04",
+    "number": "05",
     "title": "Energy subscription analytics",
     "eyebrow": "dbt + BigQuery · Metrics",
     "category": "analytics",
@@ -827,7 +866,7 @@ const projects = [
   },
   {
     "id": "swarm",
-    "number": "05",
+    "number": "06",
     "title": "Swarm SLM calendar planning",
     "eyebrow": "Team project · Multi-agent AI",
     "category": "ai",
@@ -855,7 +894,7 @@ const projects = [
   },
   {
     "id": "whisper",
-    "number": "06",
+    "number": "07",
     "title": "Multilingual speech recognition",
     "eyebrow": "Applied ML · Speech",
     "category": "mlops",
@@ -974,6 +1013,7 @@ function artGraphic(visual) {
   if (visual === 'fraud') return `<div class="fraud-graphic"><div class="fraud-row"> <span>events</span>${Array.from({length:8},()=>'<i></i>').join('')}</div><div class="fraud-center"><span>ML</span><i class="fraud-pulse"></i><i class="fraud-pulse pulse-two"></i></div><div class="fraud-row fraud-row-end"><span>signals</span>${Array.from({length:8},()=>'<i></i>').join('')}</div></div>`;
   if (visual === 'retail') return `<div class="retail-graphic">${[32,63,48,81,57,95,75,100].map((n,i)=>`<i class="retail-bar" style="height:${n}%;animation-delay:${i*70}ms"></i>`).join('')}</div>`;
   if (visual === 'energy') return `<div class="energy-graphic"><i class="energy-orbit energy-orbit-1"></i><i class="energy-orbit energy-orbit-2"></i><span class="energy-lightning">ϟ</span><i class="energy-node node-a"></i><i class="energy-node node-b"></i><i class="energy-node node-c"></i></div>`;
+  if (visual === 'fairwork') return `<div class="fairwork-graphic" aria-hidden="true"><svg viewBox="0 0 500 185" xmlns="http://www.w3.org/2000/svg" role="presentation"><g opacity=".22" stroke="#dff7f0" stroke-width="1"><path d="M10 36H490M10 84H490M10 132H490M10 172H490"/><path d="M44 12V174M152 12V174M260 12V174M368 12V174M476 12V174"/></g><path d="M30 126 C85 112,110 119,152 98 S225 103,260 78 S330 89,368 55 S430 62,474 33" fill="none" stroke="#9cf1c3" stroke-width="6" stroke-linecap="round"/><path d="M30 145 C90 132,115 142,152 121 S223 126,260 106 S330 114,368 89 S430 97,474 72" fill="none" stroke="#f5c3a8" stroke-width="4" stroke-linecap="round" opacity=".9"/><g fill="#f5fffb" stroke="#1c4d6f" stroke-width="3"><circle cx="30" cy="126" r="6"/><circle cx="152" cy="98" r="6"/><circle cx="260" cy="78" r="6"/><circle cx="368" cy="55" r="6"/><circle cx="474" cy="33" r="6"/></g><g fill="#dff7f0" font-size="10" font-family="DM Mono, monospace"><text x="24" y="179">2010</text><text x="141" y="179">2014</text><text x="249" y="179">2018</text><text x="458" y="179">2022</text><text x="31" y="25">OUTCOMES + CONTEXT</text></g></svg></div>`;
   if (visual === 'swarm') return `<div class="swarm-graphic"><i class="swarm-connect"></i><i class="swarm-connect connect-two"></i><i class="swarm-connect connect-three"></i><i class="swarm-connect connect-four"></i><span class="swarm-node swarm-core">ToT</span><span class="swarm-node swarm-a">01</span><span class="swarm-node swarm-b">02</span><span class="swarm-node swarm-c">03</span><span class="swarm-node swarm-d">04</span></div>`;
   if (visual === 'whisper') return `<div class="waveform">${[15,27,40,80,52,91,73,45,22,65,98,62,29,43,76,83,48,30,64,94,56,31,17,49,26,15].map(n=>`<i style="height:${n}%"></i>`).join('')}</div>`;
   if (visual === 'bundestag') return `<div class="product-window"><div class="product-top"><i></i><i></i><i></i></div><div class="product-line wide"></div><div class="product-line"></div><div class="product-cards"><span></span><span></span><span></span></div></div>`;
